@@ -40,7 +40,8 @@ Having this done we can already start querying.
 -----HOW TO START PARSING PROCESS-----
 
 Let’s see which commands needs to be executed in sequence:
-    Note: in order to trigger the process as a prerequirement we need to have yelp_dataset.tar in docker/clinet directory
+    
+    Note: in order to trigger the process as a prerequirement we need to have yelp_dataset_challenge_round9.tar in docker/clinet directory
     
     For building and starting cotnainers we simple need to run the following from parent direcotry
       
@@ -60,7 +61,6 @@ Let’s see which commands needs to be executed in sequence:
  After successfull job execution it's time for querying. There are a couple of queries under /client/queries directory
        
        for running each and every query simply run from /client dir
-       
        
        
          1. spark-shell -i  queries/top_nightlife_businesses_in_LasVegas.scala
