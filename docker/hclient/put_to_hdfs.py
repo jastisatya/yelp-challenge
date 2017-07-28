@@ -8,7 +8,7 @@ def put_to_hdfs(input, destination):
     all_files = ""
     for file in os.listdir(input):
         if file.endswith(".json"):
-            input_file = input+"/"+file
+            input_file = destination+"/"+file
             call(["hdfs", "dfs", "-put", input+"/"+file, destination])
             all_files += input_file+","
     print(all_files[:-1])

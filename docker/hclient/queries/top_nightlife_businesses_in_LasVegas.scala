@@ -1,9 +1,9 @@
 val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-val pbusiness = sqlContext.read.parquet("/yelp-dataset-extracted/yelp_academic_dataset_business.parquet")
+val pbusiness = sqlContext.read.parquet("/output/yelp_academic_dataset_business.parquet")
 pbusiness.registerTempTable("business")
-val preview = sqlContext.read.parquet("/yelp-dataset-extracted/yelp_academic_dataset_review.parquet")
+val preview = sqlContext.read.parquet("/output/yelp_academic_dataset_review.parquet")
 preview.registerTempTable("review")
-val puser = sqlContext.read.parquet("/yelp-dataset-extracted/yelp_academic_dataset_user.parquet")
+val puser = sqlContext.read.parquet("/output/yelp_academic_dataset_user.parquet")
 puser.registerTempTable("user")
 val allrecords = sqlContext.sql("select b.name, count(*) as top_reviewed from business b join review r on b.business_id=r.business_id where " +
   "city='Las Vegas' and array_contains(categories, 'Nightlife') group by b.name order by top_reviewed desc").limit(20)
